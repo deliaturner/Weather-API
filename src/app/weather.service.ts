@@ -8,11 +8,11 @@ export class WeatherService {
   apiKey: string = "9655af12c9883cca40a2ebdc267cc9dd";
   constructor(private httpClient: HttpClient) { }
 
-  getData(city: string = "ann arbor") {
-    return this.httpClient.get("api.openweathermap.org/data/2.5/weather?", {
-      params: { q: city, appId: this.apiKey, units: "imperial" }
+  getData(city: string) {
+    return this.httpClient.get(`https://api.openweathermap.org/data/2.5/weather?`,
+      { params: { q: city, appid: this.apiKey, units: "imperial" } }
       // q={city name}&appid={API key}
-    })
+    )
   }
 }
 // by city

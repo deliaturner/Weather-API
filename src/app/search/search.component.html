@@ -1,1 +1,31 @@
-<p>search works!</p>
+<app-header></app-header>
+<div class="container">
+  <div class="search-container">
+    <input
+      type="text"
+      id="city"
+      name="city"
+      placeholder="City"
+      required
+      [(ngModel)]="userInput"
+    />
+    <button (click)="searchByCity()">Search</button>
+  </div>
+  <div *ngIf="results" class="weather-results">
+    <div class="city-and-icon">
+      <h2>{{ results?.name }}</h2>
+      <img
+        src="http://openweathermap.org/img/wn/{{
+          (results?.weather)[0].icon
+        }}.png"
+        alt="Weather Icon"
+      />
+    </div>
+    <div>Description: {{ (results?.weather)[0].description }}</div>
+    <div>Current temp: {{ results?.main.temp }}°F</div>
+    <div>Feels like: {{ results?.main.feels_like }}°F</div>
+    <div>Pressure: {{ results?.main.pressure }}kPa</div>
+    <div>Humidity: {{ results?.main.humidity }}%</div>
+    <div>Wind speed: {{ results?.wind.speed }}mph</div>
+  </div>
+</div>
