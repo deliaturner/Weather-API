@@ -1,15 +1,26 @@
 <app-header></app-header>
 <div class="container">
-  <div class="search-container">
+  <div class="search-by-city">
     <input
       type="text"
       id="city"
       name="city"
       placeholder="City"
       required
-      [(ngModel)]="userInput"
+      [(ngModel)]="cityInput"
     />
     <button (click)="searchByCity()">Search</button>
+  </div>
+  <div class="search-by-zip">
+    <input
+      type="text"
+      id="zip"
+      name="zip"
+      placeholder="Zip Code"
+      required
+      [(ngModel)]="zipInput"
+    />
+    <button (click)="searchByZip()">Search</button>
   </div>
   <div *ngIf="results" class="weather-results">
     <div class="city-and-icon">
