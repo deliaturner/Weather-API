@@ -24,8 +24,8 @@ export class SearchComponent implements OnInit {
   }
 
   searchByZip() {
-    let zipCode: number = parseInt(this.zipInput);
-    this.weatherService.getZipData(zipCode).subscribe((data: any) => {
+    // let zipCode: number = parseInt(this.zipInput);
+    this.weatherService.getZipData(this.zipInput).subscribe((data: any) => {
       this.results = data;
       this.zipInput = '';
     })

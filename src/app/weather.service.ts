@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http'
 export class WeatherService {
 
   apiKey: string = "9655af12c9883cca40a2ebdc267cc9dd";
+
   constructor(private httpClient: HttpClient) { }
 
   getData(city: string): any {
@@ -14,7 +15,8 @@ export class WeatherService {
       // q={city name}&appid={API key}
     )
   }
-  getZipData(zipCode: number): any {
+  //API calls use string even if it's a number?
+  getZipData(zipCode: string): any {
     return this.httpClient.get(`https://api.openweathermap.org/data/2.5/weather?`,
       { params: { zip: zipCode, appid: this.apiKey, units: "imperial" } }
     )
