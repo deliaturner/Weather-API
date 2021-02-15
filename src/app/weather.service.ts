@@ -15,7 +15,7 @@ export class WeatherService {
       // q={city name}&appid={API key}
     )
   }
-  //API calls use string even if it's a number?
+
   getZipData(zipCode: string): any {
     return this.httpClient.get(`https://api.openweathermap.org/data/2.5/weather?`,
       { params: { zip: zipCode, appid: this.apiKey, units: "imperial" } }
