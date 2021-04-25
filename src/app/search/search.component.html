@@ -1,7 +1,9 @@
 <app-header></app-header>
 <div class="container">
+  <div *ngIf="!results">Please Enter a City Name or Zip Code</div>
   <div class="search-type">
-    <!-- <div class="search-by-city">
+    <div class="search-by-city">
+      City Name
       <input
         type="text"
         id="city"
@@ -11,9 +13,9 @@
         [(ngModel)]="cityInput"
       />
       <button (click)="searchByCity()">Search</button>
-    </div> -->
+    </div>
     <div class="search-by-zip">
-      Search By Zip Code
+      Zip Code
       <input
         type="text"
         id="zip"
